@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dom Query Selector</title>
+    <style>
+      * {
+        border: 2px solid #dedede;
+        padding: 15px;
+        margin: 15px;
+      }
+      html {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        max-width: 600px;
+        margin: 30px auto;
+        font-family: sans-serif;
+        color: #333;
+      }
+      .bg-dark {
+        background-color: darkorange;
+      }
+      .bg-white {
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="judul">Hello World</h1>
+    <div id="container">
+      <section id="a">
+        <p class="p1">paragraf 1</p>
+        <button id="button" type="button" onclick="ChangeThemes()">Ganti Tema</button>
+        <button id="button" class="ps" type="button" onclick="removeButton()">Hilangkan</button>
+        <a href="http://instagram.com/sandhikagalih">Instagram Sandhika Galih</a>
+        <p class="p2">paragraf 2</p>
+        <p class="p3">paragraf 3</p>
+      </section>
+      <section id="b">
+        <p>paragraf 4</p>
+        <ul>
+          <li>item 1</li>
+          <li>item 2</li>
+          <li>item 3</li>
+        </ul>
+      </section>
+    </div>
+
+    <script src="script4.js"></script>
+  </body>
+</html>
