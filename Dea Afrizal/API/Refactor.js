@@ -1,15 +1,29 @@
 const searchBotton = document.querySelector(".search-button");
 searchBotton.addEventListener("click", async function () {
-  const inputKeyword = document.querySelector(".input-keyword");
-  const movies = await getMovies(inputKeyword.value);
-
-  updateUI(movies);
+  try {
+    const inputKeyword = document.querySelector(".input-keyword");
+    const movies = await getMovies(inputKeyword.value);
+    updateUI(movies);
+  } catch (err) {
+    alert(err);
+  }
 });
 
 function getMovies(keyword) {
   return fetch("http://www.omdbapi.com/?apikey=55baf41e&s=" + keyword)
-    .then((response) => response.json())
-    .then((response) => response.Search);
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+      return response.json();
+    })
+    .then((response) => {
+      if (response.Response === "False") {
+        throw new Error(response.Error);
+      }
+      console.log(response);
+      return response.Search;
+    });
 }
 
 function updateUI(movies) {
